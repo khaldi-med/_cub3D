@@ -1,36 +1,50 @@
 #include "cub.h"
-#include "libft/libft.h"
-#include <complex.h>
-#include <fcntl.h>
-#include <stdbool.h>
-#include <stdio.h>
 
 bool ft_valid_arg(char *str) {
   int fd;
+
   fd = open(str, O_RDONLY);
-  if (fd <= 0) {
-    perror("argummment note valide");
-    return false;
-  } else {
-    if (ft_strcmp(str, "./map.cub") == 0) {
-      return true;
-    }
+  if (fd < 0) {
+    perror("file not found\n");
+    return (false);
   }
-  return false;
+  close(fd);
+  if (ft_strcmp(str, "./map.cub") == 0)
+    return (true);
+  return (false);
+}
+
+char *ft_parce_map_file(char *str) {
+  char *line;
+  int fd;
+
+  line = NULL;
+  if (!ft_valid_arg(str))
+    return (NULL);
+  fd = open(str, O_RDONLY);
+  if (fd < 0) {
+    perror("open");
+    return (NULL);
+  }
+  line = ft_get_next_line(fd);
+  close(fd);
+  return (line);
 }
 
 int main(int ac, char **av) {
+  char *line;
+
   if (ac != 2) {
-    /* TODO:  write the error func */
-    // ft_error(ac);
-    perror("Error: argummment not valid\n");
+    perror("Error: argument not valid\n");
+    exit(EXIT_FAILURE);
   }
-  if (ft_valid_arg(av[1]))
-    printf("the file is exicted!\n");
-  else {
-    perror("the file not exicted\n");
-  };
-  /* TODO:  ft_pacre */
-  // ft_parce(av[1]);
+  line = ft_parce_map_file(av[1]);
+  if (!line) {
+    perror("Error: failed to read map file\n");
+    exit(EXIT_FAILURE);
+  }
+  printf("%s\n", line);
+  free(line);
+  // free(map);
   return (0);
 }
