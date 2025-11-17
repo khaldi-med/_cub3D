@@ -23,6 +23,7 @@ typedef struct s_map {
 
 typedef struct s_config {
   t_textuers text[4];
+  t_map map;
   int f_color;
   int cel_color;
   int player_x;
