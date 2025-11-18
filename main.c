@@ -1,50 +1,44 @@
 #include "cub.h"
 
-bool ft_valid_arg(char *str) {
-  int fd;
+bool ft_valid_path(char *str) {
+  int file_fd;
 
-  fd = open(str, O_RDONLY);
-  if (fd < 0) {
+  file_fd = open(str, O_WRONLY);
+  if (file_fd < 0) {
     perror("file not found\n");
     return (false);
   }
-  close(fd);
-  if (ft_strcmp(str, "./map.cub") == 0)
+  if (strstr(str, ".cub")) {
     return (true);
+  }
   return (false);
 }
 
-char *ft_parce_map_file(char *str) {
+int main(int argc, char **argv) {
   char *line;
-  int fd;
+  int file_fd;
 
   line = NULL;
-  if (!ft_valid_arg(str))
-    return (NULL);
-  fd = open(str, O_RDONLY);
-  if (fd < 0) {
-    perror("open");
-    return (NULL);
-  }
-  line = ft_get_next_line(fd);
-  close(fd);
-  return (line);
-}
-
-int main(int ac, char **av) {
-  char *line;
-
-  if (ac != 2) {
+  if (argc != 2) {
     perror("Error: argument not valid\n");
     exit(EXIT_FAILURE);
   }
-  line = ft_parce_map_file(av[1]);
-  if (!line) {
-    perror("Error: failed to read map file\n");
-    exit(EXIT_FAILURE);
+  if (!ft_valid_path(argv[1])) {
+    return (1);
   }
-  printf("%s\n", line);
-  free(line);
-  // free(map);
+  file_fd = open(argv[1], O_WRONLY);
+  if (file_fd < 0) {
+    perror("open");
+    return (1);
+  }
+  line = ft_get_next_line(file_fd);
+  if (!line)
+    printf("empty line\n");
+  while (line != NULL) {
+    printf("%s", line);
+    free(line);
+    line = ft_get_next_line(file_fd);
+  }
+  close(file_fd);
   return (0);
 }

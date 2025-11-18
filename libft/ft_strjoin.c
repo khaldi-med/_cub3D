@@ -19,8 +19,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*new;
 	char	*n_p;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	new = malloc(len_s1 + len_s2 + 1);

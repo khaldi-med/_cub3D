@@ -27,6 +27,7 @@ static char *ft_fill_stash(int fd, char *stash) {
     temp = ft_strjoin(stash, buffer);
     if (!temp)
       return (free(buffer), ft_free_null(stash));
+    free(stash);
     stash = temp;
   }
   free(buffer);

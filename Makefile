@@ -4,8 +4,7 @@ NAME=cub
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
-
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)
 LIBFT_DIR = ./libft
 
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -17,10 +16,10 @@ all: $(NAME)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(LIBFT) $(OBJECTS) cub.h
+$(NAME): $(LIBFT) $(OBJECTS)
 	$(CC) $(OBJECTS) $(LIBFT) -o $(NAME)
 
-%.o: %.c
+%.o: %.c cub.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
