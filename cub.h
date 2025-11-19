@@ -45,6 +45,8 @@ typedef struct s_config {
 } t_config;
 
 /*Parse functions*/
+
+/*main config*/
 bool ft_valid_file(char *file);
 int ft_open_file(char *path);
 void ft_parse_file(int fd, t_config *config);
@@ -52,4 +54,12 @@ t_config *ft_init_config(void);
 
 /*map functions*/
 char **ft_malloc_map_grid(int height);
+
+/*textures*/
+bool ft_is_texture_line(char *line);
+void ft_fill_path(t_config *config, char *line);
+
+/*utils*/
+char *ft_skip_space(char *line);
+
 #endif

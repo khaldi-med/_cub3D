@@ -1,4 +1,4 @@
-SRCS= main.c parse_map.c parse_conf.c
+SRCS= main.c parse_map.c parse_conf.c parse_utils.c parse_texture.c
 
 NAME=cub
 

@@ -52,13 +52,15 @@ t_config *ft_init_config(void) {
 
 void ft_parse_file(int fd, t_config *config) {
   char *line;
-  char trimed *config->map.grid = ft_malloc_map_grid(100);
+  char *trimed;
+  config->map.grid = ft_malloc_map_grid(100);
   line = ft_get_next_line(fd);
   while (line) {
     trimed = ft_strtrim(line, " \t\n");
     free(line);
     if (trimed && trimed[0] != '\0') {
-      if (ft_is_texture(trimed))
+      if (ft_is_texture_line(trimed))
+        ft_fill_path(line);
     }
   }
 }
