@@ -1,44 +1,40 @@
-#include "cub.h"
+#include "./cub.h"
+#include "libft/libft.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-bool ft_valid_path(char *str) {
-  int file_fd;
-
-  file_fd = open(str, O_WRONLY);
-  if (file_fd < 0) {
-    perror("file not found\n");
+bool ft_valid_file(char *file) {
+  size_t len = ft_strlen(file);
+  if (len < 5) {
+    perror("file");
     return (false);
   }
-  if (strstr(str, ".cub")) {
-    return (true);
+  char *extention = ft_strchr(file, '.');
+  if (ft_strcmp(".cub", extention) != 0)
+    return false;
+  return true;
+}
+
+int ft_open_file(char *str) {
+  int fd;
+
+  fd = open(str, O_RDONLY);
+  if (fd < 0) {
+    perror("file not found\n");
+    return (-1);
   }
-  return (false);
+  return (fd);
 }
 
 int main(int argc, char **argv) {
-  char *line;
-  int file_fd;
-
-  line = NULL;
   if (argc != 2) {
     perror("Error: argument not valid\n");
-    exit(EXIT_FAILURE);
+    return (EXIT_FAILURE);
   }
-  if (!ft_valid_path(argv[1])) {
-    return (1);
-  }
-  file_fd = open(argv[1], O_WRONLY);
-  if (file_fd < 0) {
-    perror("open");
-    return (1);
-  }
-  line = ft_get_next_line(file_fd);
-  if (!line)
-    printf("empty line\n");
-  while (line != NULL) {
-    printf("%s", line);
-    free(line);
-    line = ft_get_next_line(file_fd);
-  }
-  close(file_fd);
+  if (!ft_open_file(argv[1]))
+    return (EXIT_FAILURE);
+  if (ft_valid_file(argv[1]))
+    printf("the file exiseted!");
   return (0);
 }
