@@ -1,4 +1,4 @@
-NO ./path_to_the_north_texture
+NO ./textures_imgs/ChatGPT Image Nov 17, 2025, 01_20_41 AM.png
 SO ./path_to_the_south_texture
 WE ./path_to_the_west_texture
 EA ./path_to_the_east_texture

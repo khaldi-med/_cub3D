@@ -57,9 +57,11 @@ char **ft_malloc_map_grid(int height);
 
 /*textures*/
 bool ft_is_texture_line(char *line);
-void ft_fill_path(t_config *config, char *line);
+void ft_fill_textu_path(t_config *config, char *line);
 
 /*utils*/
 char *ft_skip_space(char *line);
 
+/*free */
+void ft_free_config(t_config *config);
 #endif

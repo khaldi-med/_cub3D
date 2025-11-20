@@ -1,10 +1,12 @@
-SRCS= main.c parse_map.c parse_conf.c parse_utils.c parse_texture.c
+SRCS= main.c parse_map.c parse_conf.c parse_utils.c\
+	  parse_texture.c 
 
 NAME=cub
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-g -fsanitize=address 
+
 LIBFT_DIR = ./libft
 
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -17,7 +19,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(LIBFT) $(OBJECTS)
-	$(CC) $(OBJECTS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 
 %.o: %.c cub.h
 	$(CC) $(CFLAGS) -c $< -o $@
