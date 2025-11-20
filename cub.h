@@ -62,6 +62,9 @@ void ft_fill_textu_path(t_config *config, char *line);
 /*utils*/
 char *ft_skip_space(char *line);
 
+/*color*/
+bool ft_is_color_line(char *line);
+
 /*free */
 void ft_free_config(t_config *config);
 #endif
