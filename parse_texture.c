@@ -1,73 +1,78 @@
 #include "cub.h"
+#include "libft/libft.h"
 
-bool ft_is_texture_line(char *line) {
-  char *new_line;
+bool	ft_is_texture_line(char *line)
+{
+	char	*new_line;
 
-  if (!line)
-    return (false);
-  new_line = ft_skip_space(line);
-  if (!new_line)
-    return (false);
-  if (ft_strncmp(new_line, "NO ", 3) == 0)
-    return (true);
-  if (ft_strncmp(new_line, "SO ", 3) == 0)
-    return (true);
-  if (ft_strncmp(new_line, "WE ", 3) == 0)
-    return (true);
-  if (ft_strncmp(new_line, "EA ", 3) == 0)
-    return (true);
-  return (false);
+	if (!line)
+		return (false);
+	new_line = ft_skip_space(line);
+	if (!new_line)
+		return (false);
+	if (ft_strncmp(new_line, "NO ", 3) == 0)
+		return (true);
+	if (ft_strncmp(new_line, "SO ", 3) == 0)
+		return (true);
+	if (ft_strncmp(new_line, "WE ", 3) == 0)
+		return (true);
+	if (ft_strncmp(new_line, "EA ", 3) == 0)
+		return (true);
+	return (false);
 }
 
-char *ft_extract_path(char *line) {
-  char *path;
-  char *new_path;
+char	*ft_extract_path(char *line)
+{
+	char	*path;
+	char	*new_path;
 
-  if (!line)
-    return (NULL);
-  path = ft_skip_space(line);
-  if (!path || ft_strlen(path) < 3)
-    return (NULL);
-  path += 2;
-  path = ft_skip_space(path);
-  if (!path || !path[0])
-    return (NULL);
-  new_path = ft_strtrim(path, " \t\n");
-  return (new_path);
+	if (!line)
+		return (NULL);
+	path = ft_skip_space(line);
+	if (!path || ft_strlen(path) < 3)
+		return (NULL);
+	path += 2;
+	path = ft_skip_space(path);
+	if (!path || !path[0])
+		return (NULL);
+	new_path = ft_strtrim(path, " \t\n");
+	return (new_path);
 }
 
-bool ft_is_valid_path(char *line) {
-  char *exten;
-  int fd;
+bool	ft_is_valid_path(char *line)
+{
+	char	*exten;
+	int		fd;
 
-  if (!line)
-    return (false);
-  exten = ft_strchr(line, '.');
-  if (!exten)
-    return (false);
-  fd = open(line, O_RDONLY);
-  if (fd < 0)
-    return (false);
-  close(fd);
-  return (true);
+	if (!line)
+		return (false);
+	exten = ft_strchr(line, '.');
+	if (!exten || ft_strcmp(exten, ".jpg") != 0)
+		return (false);
+	fd = open(line, O_RDONLY);
+	if (fd < 0)
+		return (false);
+	close(fd);
+	return (true);
 }
 
-void ft_fill_textu_path(t_config *config, char *line) {
-  char *path;
-  char *new_path;
+void	ft_fill_textu_path(t_config *config, char *line)
+{
+	char	*path;
+	char	*new_path;
 
-  path = ft_skip_space(line);
-  new_path = ft_extract_path(path);
-  if (!new_path || !ft_is_valid_path(new_path))
-    ft_free_error("fle path", config);
-  if (ft_strncmp(path, "NO ", 3) == 0)
-    config->textures.north = new_path;
-  else if (ft_strncmp(path, "WE ", 3) == 0)
-    config->textures.west = new_path;
-  else if (ft_strncmp(path, "EA ", 3) == 0)
-    config->textures.east = new_path;
-  else if (ft_strncmp(path, "SO ", 3) == 0)
-    config->textures.south = new_path;
-  else
-    ft_free_error("texture", config);
+	path = ft_skip_space(line);
+	new_path = ft_extract_path(path);
+	if (!new_path || !ft_is_valid_path(new_path))
+		ft_free_error("texture flie path not valide", config);
+	if (ft_strncmp(path, "NO ", 3) == 0)
+		config->textures.north = new_path;
+	else if (ft_strncmp(path, "WE ", 3) == 0)
+		config->textures.west = new_path;
+	else if (ft_strncmp(path, "EA ", 3) == 0)
+		config->textures.east = new_path;
+	else if (ft_strncmp(path, "SO ", 3) == 0)
+		config->textures.south = new_path;
+	else
+		ft_free_error("texture error", config);
 }

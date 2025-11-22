@@ -1,9 +1,9 @@
 NO ./textures_imgs/ChatGPT Image Nov 17, 2025, 01_20_41 AM.png
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+SO ./textures_imgs/ChatGPT Image Nov 17, 2025, 01_22_32 AM.png
+WE ./textures_imgs/ChatGPT Image Nov 17, 2025, 01_30_35 AM.png
+EA ./textures_imgs/ChatGPT Image Nov 17, 2025, 01_30_35 AM.png
 
-F 2a0,100,0
+F 20,100,0
 C 225,30,0
 
 1111111111111111111111111

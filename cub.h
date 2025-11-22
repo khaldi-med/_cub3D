@@ -2,10 +2,7 @@
 # define CUB_H
 
 # include "./libft/libft.h"
-# include "./mlx/mlx.h"
-# include <complex.h>
 # include <fcntl.h>
-# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>

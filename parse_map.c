@@ -1,6 +1,4 @@
 #include "cub.h"
-#include "libft/libft.h"
-#include <stdbool.h>
 
 static bool	ft_is_valid_map(char c)
 {
