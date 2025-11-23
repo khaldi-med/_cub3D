@@ -5,3 +5,5 @@
 /tags
 /mlx
 *.pdf
+*.a
+/test_map
