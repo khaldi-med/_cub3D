@@ -51,6 +51,20 @@ t_config	*ft_init_config(void)
 	config->player.dire = '\0';
 	return (config);
 }
+bool	ft_config_is_complete(t_config *config)
+{
+	if (!config)
+		return (false);
+	if (!config->textures.north || !config->textures.south)
+		return (false);
+	if (!config->textures.west || !config->textures.east)
+		return (false);
+	if (config->floor.r < 0 || config->ceil.r < 0)
+		return (false);
+	if (!config->map.grid || config->map.height == 0)
+		return (false);
+	return (true);
+}
 
 void	ft_parse_file(int fd, t_config *config)
 {

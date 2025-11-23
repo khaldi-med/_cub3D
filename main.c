@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	}
 	ft_parse_file(fd, config);
 	close(fd);
+	if (ft_config_is_complete(config))
+		ft_free_error("config\n", config);
 	ft_free_config(config);
 	return (0);
 }

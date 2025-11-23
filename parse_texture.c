@@ -1,6 +1,4 @@
 #include "cub.h"
-#include "libft/libft.h"
-#include <stdio.h>
 
 static bool	ft_check_textu_dir(char *line)
 {
