@@ -86,6 +86,7 @@ void	ft_fill_color_conf(t_config *config, char *line)
 	int		*rgb;
 
 	new_line = ft_skip_space(line);
+	printf("color: %s\n", new_line);
 	color = ft_skip_space(new_line + 1);
 	rgb = ft_handel_rgb(color);
 	if (!rgb || !ft_is_valid_rgb(rgb[0], rgb[1], rgb[2]))

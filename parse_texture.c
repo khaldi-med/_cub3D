@@ -1,6 +1,19 @@
 #include "cub.h"
 #include "libft/libft.h"
 
+static bool	ft_check_textu_dir(char *line)
+{
+	if (ft_strncmp(line, "NO ", 3) == 0)
+		return (true);
+	else if (ft_strncmp(line, "SO ", 3) == 0)
+		return (true);
+	else if (ft_strncmp(line, "WE ", 3) == 0)
+		return (true);
+	else if (ft_strncmp(line, "EA ", 3) == 0)
+		return (true);
+	return (false);
+}
+
 bool	ft_is_texture_line(char *line)
 {
 	char	*new_line;
@@ -10,13 +23,7 @@ bool	ft_is_texture_line(char *line)
 	new_line = ft_skip_space(line);
 	if (!new_line)
 		return (false);
-	if (ft_strncmp(new_line, "NO ", 3) == 0)
-		return (true);
-	if (ft_strncmp(new_line, "SO ", 3) == 0)
-		return (true);
-	if (ft_strncmp(new_line, "WE ", 3) == 0)
-		return (true);
-	if (ft_strncmp(new_line, "EA ", 3) == 0)
+	if (ft_check_textu_dir(new_line))
 		return (true);
 	return (false);
 }

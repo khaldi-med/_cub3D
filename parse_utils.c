@@ -81,9 +81,7 @@ void	ft_free_config(t_config *config)
 
 void	ft_free_error(char *msg, t_config *config)
 {
-	ft_putstr_fd("Error\n", 2);
-	if (msg)
-		ft_putstr_fd(msg, 2);
+	perror(msg);
 	ft_free_config(config);
 	exit(EXIT_FAILURE);
 }

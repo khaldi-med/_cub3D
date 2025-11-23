@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:02:49 by mohkhald          #+#    #+#             */
-/*   Updated: 2024/11/10 21:15:26 by mohkhald         ###   ########.fr       */
+/*   Updated: 2025/11/22 23:24:07 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	new_s[to_len] = '\0';
 	return (new_s);
 }
+
