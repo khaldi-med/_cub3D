@@ -29,7 +29,7 @@ int	*ft_handel_rgb(char *s)
 	/* printf("%s\n", split_rgb[0]); */
 	/* printf("%s\n", split_rgb[1]); */
 	/* printf("%s\n", split_rgb[2]); */
-	if (!split_rgb || !split_rgb[0] || split_rgb[1] || split_rgb[2])
+	if (!split_rgb || !split_rgb[0] || !split_rgb[1] || !split_rgb[2])
 	{
 		ft_free_split(split_rgb);
 		return (NULL);
@@ -54,11 +54,11 @@ int	*ft_handel_rgb(char *s)
 
 bool	ft_is_valid_rgb(int r, int g, int b)
 {
-	if ((r < 0 || r > 255))
+	if (r < 0 || r > 255)
 		return (false);
-	if ((g < 0 || g > 255))
+	if (g < 0 || g > 255)
 		return (false);
-	if ((b < 0 || b > 255))
+	if (b < 0 || b > 255)
 		return (false);
 	return (true);
 }
@@ -86,7 +86,6 @@ void	ft_fill_color_conf(t_config *config, char *line)
 	int		*rgb;
 
 	new_line = ft_skip_space(line);
-	printf("color: %s\n", new_line);
 	color = ft_skip_space(new_line + 1);
 	rgb = ft_handel_rgb(color);
 	if (!rgb || !ft_is_valid_rgb(rgb[0], rgb[1], rgb[2]))

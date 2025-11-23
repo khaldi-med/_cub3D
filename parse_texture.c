@@ -1,15 +1,16 @@
 #include "cub.h"
 #include "libft/libft.h"
+#include <stdio.h>
 
 static bool	ft_check_textu_dir(char *line)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (true);
-	else if (ft_strncmp(line, "SO ", 3) == 0)
+	if (ft_strncmp(line, "SO ", 3) == 0)
 		return (true);
-	else if (ft_strncmp(line, "WE ", 3) == 0)
+	if (ft_strncmp(line, "WE ", 3) == 0)
 		return (true);
-	else if (ft_strncmp(line, "EA ", 3) == 0)
+	if (ft_strncmp(line, "EA ", 3) == 0)
 		return (true);
 	return (false);
 }
@@ -54,7 +55,7 @@ bool	ft_is_valid_path(char *line)
 	if (!line)
 		return (false);
 	exten = ft_strchr(line, '.');
-	if (!exten || ft_strcmp(exten, ".jpg") != 0)
+	if (!exten || ft_strcmp(exten, ".xpm") != 0)
 		return (false);
 	fd = open(line, O_RDONLY);
 	if (fd < 0)
@@ -70,6 +71,7 @@ void	ft_fill_textu_path(t_config *config, char *line)
 
 	path = ft_skip_space(line);
 	new_path = ft_extract_path(path);
+	printf("path: %s\n", new_path);
 	if (!new_path || !ft_is_valid_path(new_path))
 		ft_free_error("texture flie path not valide", config);
 	if (ft_strncmp(path, "NO ", 3) == 0)
