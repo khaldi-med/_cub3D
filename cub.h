@@ -45,6 +45,7 @@ typedef struct s_config
 	t_color		ceil;
 	t_map		map;
 	t_player	player;
+	bool		valid;
 }				t_config;
 
 /*Parse functions*/
@@ -61,6 +62,7 @@ bool			ft_is_map_line(char *line);
 void			ft_fill_map(char **grid, char *line, int row);
 bool			ft_config_is_complete(t_config *config);
 bool			ft_valid_map(t_config *config);
+bool			ft_check_map_gaps(t_map *map, t_player *player);
 
 /*textures*/
 bool			ft_is_texture_line(char *line);
