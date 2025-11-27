@@ -1,7 +1,6 @@
 SRCS= main.c parse_map.c parse_conf.c parse_utils.c\
 	  parse_texture.c parse_color.c valide_map.c valide_map2.c
 
-
 NAME=cub
 
 CC = gcc

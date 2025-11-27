@@ -88,9 +88,8 @@ void	ft_fill_color_conf(t_config *config, char *line)
 	if (!rgb || !ft_is_valid_rgb(rgb[0], rgb[1], rgb[2]))
 	{
 		free(rgb);
-		ft_free_error("Error!\n", config);
+		ft_free_error("color not valid!\n", config);
 	}
 	ft_fill_rgb_config(config, rgb, new_line);
-	printf("%d", config->floor.r);
 	free(rgb);
 }

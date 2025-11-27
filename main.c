@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
 	ft_parse_file(fd, config);
 	close(fd);
 	if (!ft_config_is_complete(config))
-		ft_free_error("Error\n", config);
+		ft_free_error("", config);
 	if (!ft_valid_map(config))
-		ft_free_error("Error\n", config);
+		ft_free_error("map not valide\n", config);
 	ft_free_config(config);
 	return (0);
 }

@@ -1,5 +1,4 @@
 #include "cub.h"
-#include "libft/libft.h"
 
 static bool	ft_valid_char(t_map *map)
 {

@@ -1,5 +1,4 @@
 #include "cub.h"
-#include "libft/libft.h"
 
 char	*ft_skip_space(char *line)
 {

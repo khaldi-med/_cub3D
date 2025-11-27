@@ -1,6 +1,4 @@
 #include "./cub.h"
-#include "libft/libft.h"
-#include <stdio.h>
 
 bool	ft_valid_file(char *file)
 {
