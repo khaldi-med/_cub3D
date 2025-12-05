@@ -1,5 +1,4 @@
 #include "../include/cub.h"
-#include <stdbool.h>
 
 bool	ft_is_player_char(char c)
 {

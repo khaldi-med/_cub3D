@@ -1,5 +1,4 @@
 #include "../include/cub.h"
-#include <cstdio>
 
 void	ft_fill_rgb_config(t_config *config, int *rgb, char *line)
 {

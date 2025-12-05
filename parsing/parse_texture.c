@@ -61,24 +61,3 @@ bool	ft_is_valid_path(char *line)
 	close(fd);
 	return (true);
 }
-
-/* void	ft_fill_textu_path(t_config *config, char *line) */
-/* { */
-/* 	char	*path; */
-/* 	char	*new_path; */
-
-/* 	path = ft_skip_space(line); */
-/* 	new_path = ft_extract_path(path); */
-/* 	if (!new_path || !ft_is_valid_path(new_path)) */
-/* 		ft_free_error("invalid texture path.\n", config); */
-/* 	if (ft_strncmp(path, "NO ", 3) == 0) */
-/* 		config->textures.north = new_path; */
-/* 	else if (ft_strncmp(path, "WE ", 3) == 0) */
-/* 		config->textures.west = new_path; */
-/* 	else if (ft_strncmp(path, "EA ", 3) == 0) */
-/* 		config->textures.east = new_path; */
-/* 	else if (ft_strncmp(path, "SO ", 3) == 0) */
-/* 		config->textures.south = new_path; */
-/* 	else */
-/* 		ft_free_error("path not found.\n", config); */
-/* } */

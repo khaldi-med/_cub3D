@@ -46,6 +46,8 @@ typedef struct s_config
 	t_map		map;
 	t_player	player;
 	bool		valid;
+	bool		floor_set;
+	bool		ceil_set;
 }				t_config;
 
 /*Parse functions*/
@@ -53,20 +55,24 @@ typedef struct s_config
 /*main config*/
 bool			ft_valid_file(char *file);
 int				ft_open_file(char *path);
-void			ft_parse_file(int fd, t_config *config);
+void			ft_parse_file(char *arr, t_config *config);
 t_config		*ft_init_config(void);
 
 /*map functions*/
 char			**ft_malloc_map_grid(int height);
 bool			ft_is_map_line(char *line);
-void			ft_fill_map(char **grid, char *line, int row);
+bool			ft_fill_map(char **grid, char *line, int row);
 bool			ft_config_is_complete(t_config *config);
 bool			ft_valid_map(t_config *config);
 bool			ft_check_map_gaps(t_map *map, t_player *player);
+int				ft_count_map_l(char *arr);
+bool			ft_is_player_char(char c);
 
 /*textures*/
 bool			ft_is_texture_line(char *line);
 void			ft_fill_textu_path(t_config *config, char *line);
+char			*ft_extract_path(char *line);
+bool			ft_is_valid_path(char *line);
 
 /*utils*/
 char			*ft_skip_space(char *line);
@@ -79,5 +85,6 @@ bool			ft_is_numeric(char **s);
 bool			ft_is_color_line(char *line);
 void			ft_fill_color_conf(t_config *config, char *line);
 int				*ft_handel_rgb(char *s);
+bool			ft_is_valid_rgb(int r, int g, int b);
 
 #endif
