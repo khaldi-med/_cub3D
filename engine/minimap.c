@@ -56,7 +56,7 @@ void	ft_draw_grid(t_game_state *game)
 			if (game->config->map.grid[y][x] == '1')
 				color = 0x808080;
 			else if (game->config->map.grid[y][x] == '0'
-					|| ft_is_player_char(game->config->map.grid[y][x]))
+				|| ft_is_player_char(game->config->map.grid[y][x]))
 				color = 0x202020;
 			else
 				color = 0x000000;

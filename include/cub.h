@@ -6,11 +6,8 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 00:50:51 by mohkhald          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/05 19:04:22 by mben-cha         ###   ########.fr       */
-=======
+/*   Updated: 2026/01/05 20:49:52 by mohkhald         ###   ########.fr       */
 /*   Updated: 2026/01/04 23:18:59 by mohkhald         ###   ########.fr       */
->>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,5 +202,5 @@ int				ft_close_game(t_game_state *game);
 void			run_engine(t_config *config);
 int				is_inside_map(t_game_state *game, int y, int x);
 void			is_valid_texture(t_game_state *game, int index, void *img);
-void	ft_draw_minimap(t_game_state *game);
+void			ft_draw_minimap(t_game_state *game);
 #endif

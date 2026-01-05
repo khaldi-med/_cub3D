@@ -9,7 +9,7 @@ NAME=cub3D
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-fsanitize=address
 
 LDFLAGS = -L./include/minilibx -lmlx -framework OpenGL -framework AppKit 
 

@@ -6,11 +6,8 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/05 19:01:15 by mben-cha         ###   ########.fr       */
-=======
+/*   Updated: 2026/01/05 21:03:34 by mohkhald         ###   ########.fr       */
 /*   Updated: 2026/01/04 21:10:03 by mohkhald         ###   ########.fr       */
->>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +16,7 @@
 
 static void	init_window_and_image(t_game_state *game)
 {
-	game->mlx = mlx_init(); 
+	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, 1920, 1080, "Cube3D");
 	game->img.img = mlx_new_image(game->mlx, 1920, 1080);
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
@@ -28,8 +25,8 @@ static void	init_window_and_image(t_game_state *game)
 
 static void	load_textures(t_game_state *game)
 {
-	int			i;
-	char		*tmp_arr[4];
+	int		i;
+	char	*tmp_arr[4];
 
 	i = 0;
 	tmp_arr[0] = game->config->textures.east;
@@ -39,47 +36,17 @@ static void	load_textures(t_game_state *game)
 	while (i < 4)
 	{
 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx,
-																tmp_arr[i],
-																&game->textures[i].width,
-																&game->textures[i].height);
+				tmp_arr[i], &game->textures[i].width,
+				&game->textures[i].height);
 		is_valid_texture(game, i, game->textures[i].img_xpm.img);
-<<<<<<< HEAD
-		game->textures[i].img_xpm.addr = mlx_get_data_addr(
-				game->textures[i].img_xpm.img,
+		game->textures[i].img_xpm.addr = 
+			mlx_get_data_addr(game->textures[i].img_xpm.img,
 				&game->textures[i].img_xpm.bits_per_pixel,
 				&game->textures[i].img_xpm.line_length,
 				&game->textures[i].img_xpm.endian);
-=======
-		// Get texture pixel data address to enable direct pixel access
-		// This populates the addr pointer needed by my_mlx_pixel_get()
-		game->textures[i].img_xpm.addr = mlx_get_data_addr(
-			game->textures[i].img_xpm.img,
-			&game->textures[i].img_xpm.bits_per_pixel,
-			&game->textures[i].img_xpm.line_length,
-			&game->textures[i].img_xpm.endian);
->>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 		i++;
 	}
 }
-/* static void	load_textures(t_game_state *game) */
-/* { */
-/* 	int		i; */
-/* 	char	*tmp_arr[4]; */
-
-/* 	i = 0; */
-/* 	tmp_arr[0] = game->config->textures.east; */
-/* 	tmp_arr[1] = game->config->textures.north; */
-/* 	tmp_arr[2] = game->config->textures.south; */
-/* 	tmp_arr[3] = game->config->textures.west; */
-/* 	while (i < 4) */
-/* 	{ */
-/* 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx, */
-/* 				tmp_arr[i], &game->textures[i].width, */
-/* 				&game->textures[i].height); */
-/* 		is_valid_texture(game, i, game->textures[i].img_xpm.img); */
-/* 		i++; */
-/* 	} */
-/* } */
 
 static void	init_camera(t_game_state *game)
 {
@@ -114,17 +81,10 @@ static void	init_input_state(t_game_state *game)
 	game->keycode = -1;
 	memset(game->keys, 0, sizeof(game->keys));
 	game->time = get_ticks();
-<<<<<<< HEAD
-	game->floor_c = game->config->floor.r << 16
-		| game->config->floor.g << 8
-		| game->config->floor.b;
-	game->ceiling_c = game->config->ceil.r << 16
-		| game->config->ceil.g << 8
-		| game->config->ceil.b;
-=======
-	game->floor_c = game->config->floor.r | game->config->floor.g | game->config->floor.b;
-	game->ceiling_c = game->config->ceil.r | game->config->ceil.g | game->config->ceil.b;
->>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
+	game->floor_c = game->config->floor.r << 16 
+		| game->config->floor.g << 8 | game->config->floor.b;
+	game->ceiling_c = game->config->ceil.r << 16 
+		| game->config->ceil.g << 8 | game->config->ceil.b;
 }
 
 void	init_game(t_game_state *game, t_config *config)

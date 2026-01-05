@@ -89,6 +89,7 @@ int	ft_count_map_l(char *arr)
 		return (-1);
 	count = 0;
 	line = ft_get_next_line(fd);
+
 	while (line)
 	{
 		new_line = ft_strtrim(line, "\n");
@@ -102,5 +103,6 @@ int	ft_count_map_l(char *arr)
 		line = ft_get_next_line(fd);
 	}
 	close(fd);
+	//printf("%d\n", count);
 	return (count);
 }

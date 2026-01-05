@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:11:45 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:11:46 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/05 21:21:04 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_recursive_check(char **arr, int x, int y, int height)
 	if (x >= len_r)
 		return (1);
 	if (arr[y][x] == ' ')
-		return (0);
+		 return (0);
 	if (arr[y][x] == '1' || arr[y][x] == 'v')
 		return (1);
 	arr[y][x] = 'v';
