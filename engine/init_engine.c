@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/05 21:03:34 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/06 02:49:25 by mohkhald         ###   ########.fr       */
 /*   Updated: 2026/01/04 21:10:03 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@
 static void	init_window_and_image(t_game_state *game)
 {
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 1920, 1080, "Cube3D");
+	game->mlx_win = mlx_new_window(game->mlx, 1920, 1080, "Cub3D");
 	game->img.img = mlx_new_image(game->mlx, 1920, 1080);
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
 			&game->img.line_length, &game->img.endian);
@@ -36,14 +36,15 @@ static void	load_textures(t_game_state *game)
 	while (i < 4)
 	{
 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx,
-				tmp_arr[i], &game->textures[i].width,
-				&game->textures[i].height);
+																tmp_arr[i],
+																&game->textures[i].width,
+																&game->textures[i].height);
 		is_valid_texture(game, i, game->textures[i].img_xpm.img);
-		game->textures[i].img_xpm.addr = 
+		game->textures[i].img_xpm.addr =
 			mlx_get_data_addr(game->textures[i].img_xpm.img,
-				&game->textures[i].img_xpm.bits_per_pixel,
-				&game->textures[i].img_xpm.line_length,
-				&game->textures[i].img_xpm.endian);
+								&game->textures[i].img_xpm.bits_per_pixel,
+								&game->textures[i].img_xpm.line_length,
+								&game->textures[i].img_xpm.endian);
 		i++;
 	}
 }
@@ -81,10 +82,8 @@ static void	init_input_state(t_game_state *game)
 	game->keycode = -1;
 	memset(game->keys, 0, sizeof(game->keys));
 	game->time = get_ticks();
-	game->floor_c = game->config->floor.r << 16 
-		| game->config->floor.g << 8 | game->config->floor.b;
-	game->ceiling_c = game->config->ceil.r << 16 
-		| game->config->ceil.g << 8 | game->config->ceil.b;
+	game->floor_c = game->config->floor.r << 16 | game->config->floor.g << 8 | game->config->floor.b;
+	game->ceiling_c = game->config->ceil.r << 16 | game->config->ceil.g << 8 | game->config->ceil.b;
 }
 
 void	init_game(t_game_state *game, t_config *config)

@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:11:01 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:11:03 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/06 02:50:15 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	ft_count_map_l(char *arr)
 		return (-1);
 	count = 0;
 	line = ft_get_next_line(fd);
-
 	while (line)
 	{
 		new_line = ft_strtrim(line, "\n");
@@ -103,6 +102,5 @@ int	ft_count_map_l(char *arr)
 		line = ft_get_next_line(fd);
 	}
 	close(fd);
-	//printf("%d\n", count);
 	return (count);
 }

@@ -3,13 +3,12 @@ SRCS= ./parsing/main.c ./parsing/parse_map.c ./parsing/parse_conf.c ./parsing/pa
 	./parsing/parse_texture_2.c ./parsing/parse_color_2.c ./parsing/parse_conf_2.c\
 	./engine/camera_move.c ./engine/camera_rotate.c ./engine/compute_wall.c ./engine/dda.c ./engine/draw_floor_ceiling.c\
 	./engine/draw_wall.c ./engine/init_engine.c ./engine/init_ray.c ./engine/mlx_utils.c ./engine/render_walls.c\
-	./engine/render.c ./engine/run_engine.c ./engine/update_frame_time.c ./engine/utils.c ./engine/minimap.c
-
+	./engine/render.c ./engine/run_engine.c ./engine/update_frame_time.c ./engine/utils.c 
 NAME=cub3D
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)
 
 LDFLAGS = -L./include/minilibx -lmlx -framework OpenGL -framework AppKit 
 
