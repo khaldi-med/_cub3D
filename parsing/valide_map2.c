@@ -45,9 +45,9 @@ int	ft_recursive_check(char **arr, int x, int y, int height)
 		return (0);
 	len_r = (int)ft_strlen(arr[y]);
 	if (x >= len_r)
-		return (1);
+		return (0);
 	if (arr[y][x] == ' ')
-		 return (0);
+		return (0);
 	if (arr[y][x] == '1' || arr[y][x] == 'v')
 		return (1);
 	arr[y][x] = 'v';

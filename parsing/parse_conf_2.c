@@ -53,8 +53,8 @@ static void	ft_read_line(int fd, t_config *config, int *row)
 		free(line);
 		if (new_line && new_line[0] != '\0')
 			ft_handel_line(new_line, config, row);
-		if(!new_line[0] && *row > 0)
-			ft_free_error("newline in map\n", config);
+		else if (*row > 0 && *row < config->map.height)
+			ft_free_error("map not found\n", config);
 		free(new_line);
 		line = ft_get_next_line(fd);
 	}
