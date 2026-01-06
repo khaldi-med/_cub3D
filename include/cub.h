@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 00:50:51 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/05 20:49:52 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/06 23:48:25 by mohkhald         ###   ########.fr       */
 /*   Updated: 2026/01/04 23:18:59 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -157,7 +157,7 @@ bool			ft_is_map_line(char *line);
 bool			ft_fill_map(char **grid, char *line, int row);
 bool			ft_config_is_complete(t_config *config);
 bool			ft_valid_map(t_config *config);
-bool			ft_check_map_gaps(t_map *map, t_player *player);
+bool			ft_check_map_gaps(t_map *map);
 int				ft_count_map_l(char *arr);
 bool			ft_is_player_char(char c);
 

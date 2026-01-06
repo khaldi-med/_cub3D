@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:11:51 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:11:53 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/06 23:48:40 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ static bool	ft_valid_vertical(t_map *map)
 	}
 	return (true);
 }
-
 bool	ft_valid_map(t_config *config)
 {
 	if (!config || !config->map.grid)
@@ -104,9 +103,8 @@ bool	ft_valid_map(t_config *config)
 		return (false);
 	if (!ft_valid_vertical(&config->map))
 		return (false);
-	if (!ft_check_map_gaps(&config->map, &config->player))
-		return (false);
-	config->valid = true;
+	if (!ft_check_map_gaps(&config->map))
+		config->valid = true;
 	config->map.grid[config->player.y][config->player.x] = '0';
 	return (true);
 }
