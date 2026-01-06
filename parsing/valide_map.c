@@ -93,6 +93,7 @@ static bool	ft_valid_vertical(t_map *map)
 	}
 	return (true);
 }
+
 bool	ft_valid_map(t_config *config)
 {
 	if (!config || !config->map.grid)
