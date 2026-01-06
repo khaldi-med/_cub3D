@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:11:11 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:24:26 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/06 02:43:58 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 		ft_free_error("invalid map line\n", config);
 }
 
-static void	ft_read_line(int fd, t_config *config, int *row)
+static void	ft_read_line(int fd, t_config *config, int *row, int map_l)
 {
 	char	*line;
 	char	*new_line;
@@ -53,7 +53,7 @@ static void	ft_read_line(int fd, t_config *config, int *row)
 		free(line);
 		if (new_line && new_line[0] != '\0')
 			ft_handel_line(new_line, config, row);
-		else if (*row > 0 && *row < config->map.height)
+		else if (*row > 0 && *row < map_l)
 			ft_free_error("map not found\n", config);
 		free(new_line);
 		line = ft_get_next_line(fd);
@@ -76,6 +76,6 @@ void	ft_parse_file(char *arr, t_config *config)
 	if (fd < 0)
 		ft_free_error("cannot open file\n", config);
 	row = 0;
-	ft_read_line(fd, config, &row);
+	ft_read_line(fd, config, &row, map_l);
 	close(fd);
 }
