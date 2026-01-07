@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:11:24 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:11:25 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:47:31 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	ft_is_texture_line(char *line)
 {
 	char	*new_line;
 
-	if (!line)
+	if (!line || ft_strlen(line) < 3)
 		return (false);
 	new_line = ft_skip_space(line);
 	if (!new_line)
@@ -37,25 +37,18 @@ bool	ft_is_texture_line(char *line)
 	return (ft_check_textu_dir(new_line));
 }
 
-char	*ft_extract_path(char *line)
+char	*ft_extract_line(char *line)
 {
-	char	*path;
-	char	*new_path;
+	char	*new_line;
 
-	if (!line)
+	if (!line || ft_strlen(line) < 3)
 		return (NULL);
-	path = ft_skip_space(line);
-	if (!path || ft_strlen(path) < 3)
-		return (NULL);
-	path += 2;
-	path = ft_skip_space(path);
-	if (!path || !path[0])
-		return (NULL);
-	new_path = ft_strtrim(path, " \t\n");
-	return (new_path);
+	line += 2;
+	new_line = ft_strtrim(line, " \t\n");
+	return (new_line);
 }
 
-bool	ft_is_valid_path(char *line)
+bool	ft_is_valid_line(char *line)
 {
 	char	*exten;
 	int		fd;
