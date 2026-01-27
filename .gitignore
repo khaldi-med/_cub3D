@@ -1,8 +1,0 @@
-*.out
-*.gch
-*.o
-/cub3D
-/tags
-/mlx
-*.pdf
-*.a
